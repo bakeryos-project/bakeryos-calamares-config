@@ -7,12 +7,12 @@ build_pkg:
   image: archlinux:latest
   cache: {}
   script:
-   - pacman -Sy --noconfirm base-devel
-   - useradd builder -m
-   - passwd -d builder
-   - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
-   - chown -R builder:builder .
-   - sudo -u builder makepkg -s --noconfirm
+    - pacman -Sy --noconfirm base-devel
+    - useradd builder -m
+    - passwd -d builder
+    - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
+    - chown -R builder:builder .
+    - sudo -u builder makepkg -s --noconfirm
 
   artifacts:
     paths:
@@ -21,7 +21,7 @@ build_pkg:
     GIT_STRATEGY: fetch
     GIT_CLEAN_FLAGS: -ffdx
 
-deploy_to_repo_b:
+deploy:
   stage: deploy
   image: alpine:latest
   before_script:
@@ -29,10 +29,9 @@ deploy_to_repo_b:
   script:
     - git config --global user.email "bot@bakeryos.smtdfc"
     - git config --global user.name "Bakery OS Bot"
-    - git clone https://oauth2:$AUTH_TOKEN@gitlab.com/bakery-os/bakery-os-repositories.git
-    - cp -p *.pkg.tar.zst bakery-os-repositories/$PKG_NAME
+    - git clone https://oauth2:$AUTH_TOKEN@gitlab.com/bakery-os/bakery-os-repositories.git repo_temp
+    - cp -p *.pkg.tar.zst repo_temp/$PKG_NAME/
+    - cd repo_temp
     - git add .
     - git commit -m "Auto-deploy $PKG_NAME"
-    - git push origin main
-  only:
-    - main
+    - git push https://oauth2:$AUTH_TOKEN@gitlab.com/bakery-os/bakery-os-repositories.git HEAD:main
