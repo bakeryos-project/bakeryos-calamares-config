@@ -4,16 +4,10 @@ pkgrel=1
 pkgdesc="Calamares config for Bakery OS"
 arch=('any')
 license=("GPL-3.0-or-later")
+source=("etc" "LICENSE" "README.md")
+sha256sums=('SKIP' 'SKIP' 'SKIP')
 
 package() {
-    echo "Current directory: $(pwd)"
-    find . -maxdepth 3 -not -path '*/.*'
-    ls -R ..
-
-    if [ -d "etc" ]; then
-        mkdir -p "${pkgdir}/etc"
-        cp -r etc/* "${pkgdir}/etc/"
-    else
-        echo "Not found"
-    fi
+    install -d "${pkgdir}/etc"
+    cp -r etc/* "${pkgdir}/etc/"
 }
