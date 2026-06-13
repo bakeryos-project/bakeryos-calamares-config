@@ -7,12 +7,12 @@ build_pkg:
   image: archlinux:latest
   cache: {}
   script:
-   - pacman -Sy --noconfirm base-deve
-    - useradd builder -m
-    - passwd -d builder
-    - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
-    - chown -R builder:builder .
-    - sudo -u builder makepkg -s --noconfirm
+   - pacman -Sy --noconfirm base-dev
+   - useradd builder -m
+   - passwd -d builder
+   - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
+   - chown -R builder:builder .
+   - sudo -u builder makepkg -s --noconfirm
 
   artifacts:
     paths:
