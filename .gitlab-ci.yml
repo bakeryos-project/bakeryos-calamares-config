@@ -5,6 +5,7 @@ stages:
 build_pkg:
   stage: build
   image: archlinux:latest
+  cache: {}
   script:
     - pacman -Sy --noconfirm base-devel
     - makepkg -s --noconfirm
