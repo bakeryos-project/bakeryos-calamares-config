@@ -7,16 +7,22 @@ build_pkg:
   image: archlinux:latest
   cache: {}
   script:
-    - pacman -Sy --noconfirm base-devel
+    - pacman -Sy --noconfirm base-devel gnupg
+
+    - echo "$GPG_PRIVATE_KEY" | base64 -d > private.key
+    - gpg --import --batch private.key
+
     - useradd builder -m
     - passwd -d builder
     - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
     - chown -R builder:builder .
     - sudo -u builder makepkg -s --noconfirm
+    - echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --detach-sign *.pkg.tar.zst
 
   artifacts:
     paths:
       - "*.pkg.tar.zst"
+      - "*.pkg.tar.zst.sig"
   variables:
     GIT_STRATEGY: fetch
     GIT_CLEAN_FLAGS: -ffdx
@@ -32,6 +38,7 @@ deploy:
     - git clone https://oauth2:$AUTH_TOKEN@gitlab.com/bakery-os/bakery-os-repositories.git repo_temp
     - mkdir -p repo_temp/$PKG_NAME
     - cp -p *.pkg.tar.zst repo_temp/$PKG_NAME/
+    - cp -p *.pkg.tar.zst.sig repo_temp/$PKG_NAME/
     - cd repo_temp
     - git add .
     - git commit -m "Auto-deploy $PKG_NAME"
