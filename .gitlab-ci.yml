@@ -8,6 +8,11 @@ build_pkg:
   script:
     - pacman -Sy --noconfirm base-devel
     - makepkg -s --noconfirm
+    - useradd builder -m
+    - passwd -d builder
+    - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoer
+    - sudo -u builder makepkg -s --noconfirm
+
   artifacts:
     paths:
       - "*.pkg.tar.zst"
