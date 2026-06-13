@@ -7,6 +7,7 @@ license=("GPL-3.0-or-later")
 
 package() {
     echo "Current directory: $(pwd)"
+    find . -maxdepth 3 -not -path '*/.*'
     ls -F
 
     if [ -d "etc" ]; then
