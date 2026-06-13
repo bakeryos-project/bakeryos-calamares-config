@@ -4,8 +4,8 @@ pkgrel=1
 pkgdesc="Calamares config for Bakery OS"
 arch=('any')
 license=("GPL-3.0-or-later")
-source=("etc" "LICENSE" "README.md")
-sha256sums=('SKIP' 'SKIP' 'SKIP')
+source=("LICENSE" "README.md")
+sha256sums=('SKIP' 'SKIP')
 
 prepare() {
     cp -r ../etc "${srcdir}/"
