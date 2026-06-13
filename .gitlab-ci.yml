@@ -7,7 +7,7 @@ build_pkg:
   image: archlinux:latest
   cache: {}
   script:
-   - pacman -Sy --noconfirm base-dev
+   - pacman -Sy --noconfirm base-devel
    - useradd builder -m
    - passwd -d builder
    - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
