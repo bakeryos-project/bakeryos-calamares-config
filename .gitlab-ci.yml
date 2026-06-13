@@ -30,6 +30,7 @@ deploy:
     - git config --global user.email "bot@bakeryos.smtdfc"
     - git config --global user.name "Bakery OS Bot"
     - git clone https://oauth2:$AUTH_TOKEN@gitlab.com/bakery-os/bakery-os-repositories.git repo_temp
+    - mkdir -p repo_temp/$PKG_NAME
     - cp -p *.pkg.tar.zst repo_temp/$PKG_NAME/
     - cd repo_temp
     - git add .
