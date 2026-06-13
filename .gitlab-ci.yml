@@ -17,6 +17,9 @@ build_pkg:
   artifacts:
     paths:
       - "*.pkg.tar.zst"
+  variables:
+    GIT_STRATEGY: fetch
+    GIT_CLEAN_FLAGS: -ffdx
 
 deploy_to_repo_b:
   stage: deploy
