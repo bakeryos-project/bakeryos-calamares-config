@@ -8,7 +8,7 @@ license=("GPL-3.0-or-later")
 package() {
     echo "Current directory: $(pwd)"
     find . -maxdepth 3 -not -path '*/.*'
-    ls -F
+    ls -R ..
 
     if [ -d "etc" ]; then
         mkdir -p "${pkgdir}/etc"
