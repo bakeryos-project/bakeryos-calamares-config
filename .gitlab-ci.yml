@@ -7,12 +7,11 @@ build_pkg:
   image: archlinux:latest
   cache: {}
   script:
-    - cat .gitlab-ci.yml
-    - pacman -Sy --noconfirm base-devel
-    - makepkg -s --noconfirm
+   - pacman -Sy --noconfirm base-deve
     - useradd builder -m
     - passwd -d builder
-    - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoer
+    - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
+    - chown -R builder:builder .
     - sudo -u builder makepkg -s --noconfirm
 
   artifacts:
