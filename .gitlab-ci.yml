@@ -1,0 +1,30 @@
+stages:
+  - build
+  - deploy
+
+build_pkg:
+  stage: build
+  image: archlinux:latest
+  script:
+    - pacman -Sy --noconfirm base-devel
+    - makepkg -s --noconfirm
+  artifacts:
+    paths:
+      - "*.pkg.tar.zst"
+
+deploy_to_repo_b:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git curl
+  script:
+    - git config --global user.email "bot@bakeryos.smtdfc"
+    - git config --global user.name "Bakery OS Bot"
+    - git clone https://oauth2:$AUTH_TOKEN@gitlab.com/bakery-os/bakery-os-repositories.git
+    - cp -p *.pkg.tar.zst bakery-os-repositories/$PKG_NAME
+
+    - git add .
+    - git commit -m "Auto-deploy: New package version for $PKG_NAME package"
+    - git push origin main
+  only:
+    - main
