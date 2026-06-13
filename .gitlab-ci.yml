@@ -7,6 +7,7 @@ build_pkg:
   image: archlinux:latest
   cache: {}
   script:
+    - cat .gitlab-ci.yml
     - pacman -Sy --noconfirm base-devel
     - makepkg -s --noconfirm
     - useradd builder -m
