@@ -6,5 +6,13 @@ arch=('any')
 license=("GPL-3.0-or-later")
 
 package() {
-    find etc -type f -exec install -Dm644 {} "${pkgdir}/{}" \;
+    echo "Current directory: $(pwd)"
+    ls -F
+
+    if [ -d "etc" ]; then
+        mkdir -p "${pkgdir}/etc"
+        cp -r etc/* "${pkgdir}/etc/"
+    else
+        echo "Not found"
+    fi
 }
