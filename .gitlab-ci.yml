@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-build_pkg:
+build:
   stage: build
   image: archlinux:latest
   cache: {}
@@ -26,8 +26,9 @@ build_pkg:
   variables:
     GIT_STRATEGY: fetch
     GIT_CLEAN_FLAGS: -ffdx
+    GIT_DEPTH: 0
 
-update_r2_repo:
+update:
   stage: deploy
   image: archlinux:latest
   before_script:
