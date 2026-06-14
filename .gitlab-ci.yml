@@ -7,7 +7,7 @@ build:
   image: archlinux:latest
   cache: {}
   script:
-    - pacman -Sy --noconfirm base-devel gnupg
+    - pacman -Sy --noconfirm base-devel gnupg git
 
     - echo "$GPG_PRIVATE_KEY" | base64 -d > private.key
     - gpg --import --batch private.key
