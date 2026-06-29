@@ -31,7 +31,7 @@ Presentation {
 
         Image {
             id: background
-            source: "bakery-os-logo.png"
+            source: "bakeryos-logo.png"
             width: 200
             height: 200
             fillMode: Image.PreserveAspectFit

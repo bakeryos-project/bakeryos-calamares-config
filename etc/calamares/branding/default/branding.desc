@@ -121,17 +121,17 @@ navigation: widget
 # are visible as buttons there if the corresponding *show* keys
 # are set to "true" (they can also be overridden).
 strings:
-    productName:         "Bakery OS"
+    productName:         "BakeryOS"
     shortProductName:    "Bakery"
     version:             "1.0.0"
     shortVersion:        "1"
-    versionedName:       "Bakery OS 1.0.0"
+    versionedName:       "BakeryOS 1.0.0"
     shortVersionedName:  "Bakery 1.0"
     bootloaderEntryName: "BakeryOS"
-    productUrl:          "https://github.com/smtdfc/bakery-os"
-    supportUrl:          "https://github.com/smtdfc/bakery-os"
-    knownIssuesUrl:      "https://github.com/smtdfc/bakery-os"
-    releaseNotesUrl:     "https://github.com/smtdfc/bakery-os"
+    productUrl:          "https://gitlab.com/bakeryos"
+    supportUrl:          "https://gitlab.com/bakeryos"
+    knownIssuesUrl:      "https://gitlab.com/bakeryos"
+    releaseNotesUrl:     "https://gitlab.com/bakeryos"
     donateUrl:           ""
 # These images are loaded from the branding module directory.
 #
