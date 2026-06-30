@@ -15,7 +15,6 @@ Presentation {
     id: presentation
 
     function nextSlide() {
-        console.log("QML Component (default slideshow) Next slide");
         presentation.goToNextSlide();
     }
 
