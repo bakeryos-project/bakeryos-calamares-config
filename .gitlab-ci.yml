@@ -61,3 +61,5 @@ trigger_update:
         https://gitlab.com/api/v4/projects/83284824/trigger/pipeline
   only:
     - main
+
+

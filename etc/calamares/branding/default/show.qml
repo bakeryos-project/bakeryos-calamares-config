@@ -39,19 +39,11 @@ Presentation {
         Text {
             anchors.horizontalCenter: background.horizontalCenter
             anchors.top: background.bottom
-            text: "Welcome to BakeryOS"
+            text: "Installing BakeryOS"
             wrapMode: Text.WordWrap
             width: presentation.width
             horizontalAlignment: Text.Center
         }
-    }
-
-    Slide {
-        centeredText: qsTr("Intalling BakeryOS ...")
-    }
-
-    Slide {
-        centeredText: qsTr("Intalling BakeryOS ...")
     }
 
     // When this slideshow is loaded as a V1 slideshow, only
