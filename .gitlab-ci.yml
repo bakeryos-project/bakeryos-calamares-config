@@ -55,10 +55,10 @@ trigger_update:
       echo "New packages: $PKG_NAMES"
       
       curl -X POST \
-        --header "PRIVATE-TOKEN: $REPO_SYNC_TRIGGER_TOKEN" \
+        -F "token=$CI_JOB_TOKEN" \
         -F "ref=main" \
         -F "variables[NEW_PACKAGES]=$PKG_NAMES" \
-        https://gitlab.com/api/v4/projects/83284824/pipeline
+        https://gitlab.com/api/v4/projects/83284824/trigger/pipeline
   only:
     - main
 
