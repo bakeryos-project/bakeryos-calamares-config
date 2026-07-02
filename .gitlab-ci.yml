@@ -44,7 +44,7 @@ sync:
       endpoint = $R2_ENDPOINT
       EOF
   script:
-    - rclone sync . r2:$R2_BUCKET/x86_64 --include "*.pkg.tar.zst" --include "*.pkg.tar.zst.sig"
+    - rclone copy . r2:$R2_BUCKET/x86_64 --include "*.pkg.tar.zst" --include "*.pkg.tar.zst.sig"
   only:
     - main
 
