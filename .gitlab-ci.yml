@@ -1,6 +1,7 @@
 stages:
   - build
   - deploy
+  - notify
 
 build:
   stage: build
@@ -8,17 +9,14 @@ build:
   cache: {}
   script:
     - pacman -Sy --noconfirm base-devel gnupg git
-
     - echo "$GPG_PRIVATE_KEY" | base64 -d > private.key
     - gpg --import --batch private.key
-
     - useradd builder -m
     - passwd -d builder
     - printf 'builder ALL=(ALL) ALL\n' | tee -a /etc/sudoers
     - chown -R builder:builder .
     - sudo -u builder makepkg -s --noconfirm
     - echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --detach-sign *.pkg.tar.zst
-
   artifacts:
     paths:
       - "*.pkg.tar.zst"
@@ -49,8 +47,17 @@ sync:
     - main
 
 trigger_update:
-  stage: deploy
+  stage: notify
+  image: archlinux:latest
   script:
-    - curl -X POST -F "token=$REPO_SYNC_TRIGGER_TOKEN" -F "ref=main" https://gitlab.com/api/v4/projects/83284824/trigger/pipeline
+    - |
+      PKG_NAMES=$(echo *.pkg.tar.zst | tr ' ' ',')
+      echo "New packages: $PKG_NAMES"
+      
+      curl -X POST \
+        -F "token=$REPO_SYNC_TRIGGER_TOKEN" \
+        -F "ref=main" \
+        -F "variables[NEW_PACKAGES]=$PKG_NAMES" \
+        https://gitlab.com/api/v4/projects/83284824/trigger/pipeline
   only:
     - main
