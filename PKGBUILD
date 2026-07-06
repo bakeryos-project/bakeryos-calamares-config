@@ -2,6 +2,7 @@ pkgname=bakeryos-calamares-config
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="Calamares config for BakeryOS"
+url="https://gitlab.com/bakeryos/bakeryos-calamares-config"
 arch=('any')
 license=("GPL-3.0-or-later")
 source=("LICENSE" "README.md")
