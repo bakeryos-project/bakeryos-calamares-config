@@ -19,4 +19,6 @@ prepare() {
 package() {
     install -d "${pkgdir}/etc"
     cp -r etc/* "${pkgdir}/etc/"
+
+    install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
