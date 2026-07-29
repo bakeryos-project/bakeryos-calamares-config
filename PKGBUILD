@@ -7,6 +7,7 @@ arch=('any')
 license=("GPL-3.0-or-later")
 source=("LICENSE" "README.md")
 sha256sums=('SKIP' 'SKIP')
+options=(!debug !strip)
 
 prepare() {
     cp -r ../etc "${srcdir}/"
