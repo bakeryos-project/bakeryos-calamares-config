@@ -1,5 +1,5 @@
 pkgname=bakeryos-calamares-config
-pkgver=1.0.4
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="Calamares config for BakeryOS"
 url="https://github.com/bakeryos-project/bakeryos-calamares-config"
