@@ -5,8 +5,8 @@ pkgdesc="Calamares config for BakeryOS"
 url="https://github.com/bakeryos-project/bakeryos-calamares-config"
 arch=('any')
 license=("GPL-3.0-or-later")
-source=("LICENSE" "README.md")
-sha256sums=('SKIP' 'SKIP')
+source=()
+sha256sums=()
 options=(!debug !strip)
 
 prepare() {
@@ -17,5 +17,5 @@ package() {
     install -d "${pkgdir}/etc"
     cp -r etc/* "${pkgdir}/etc/"
 
-    install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -Dm644 "${startdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
