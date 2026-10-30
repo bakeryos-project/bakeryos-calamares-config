@@ -26,11 +26,11 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      - name: Trigger Release Publish
-        if: ${{ steps.release.outputs.releases_created == 'true' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh workflow run release-publish.yml \
-            --ref main \
-            -f tag="${{ steps.release.outputs.tag_name }}"
+      # - name: Trigger Release Publish
+      #   if: ${{ steps.release.outputs.releases_created == 'true' }}
+      #   env:
+      #     GH_TOKEN: ${{ github.token }}
+      #   run: |
+      #     gh workflow run release-publish.yml \
+      #       --ref main \
+      #       -f tag="${{ steps.release.outputs.tag_name }}"
