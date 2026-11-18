@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.0](https://github.com/bakeryos-project/bakeryos-calamares-config/compare/v1.2.0...v1.3.0) (2026-11-18)
+
+
+### Features
+
+* configure GNOME keyboard layout ([2f6ecf7](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/2f6ecf782a202339d8d45b317a7c38cb4294d8c4))
+* confirm install and lock cancel during execution ([6b2b781](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/6b2b781dae9df03a96603e7b119715d31ff95263))
+* default to btrfs filesystem ([ccd9017](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/ccd9017b1eb02bde1c2e9a01266bd2d98abcbacf))
+* disable live-only units on installed system ([fb43937](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/fb4393794206cc76be1fdaf60cbedf0b6f87b6a6))
+* strip live autologin from installed system ([b4896af](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/b4896af07f71b185d2e32993409326dd3d7db943))
+* use zsh and bakeryos hostname template ([e118f40](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/e118f402a30321f162ea4b294dd134865b132bd2))
+
+
+### Bug Fixes
+
+* make boot file copy optional ([8caa8d6](https://github.com/bakeryos-project/bakeryos-calamares-config/commit/8caa8d6a7ecfa52eb1f21bbc756552f7f92b53c9))
+
 ## [1.2.0](https://github.com/bakeryos-project/bakeryos-calamares-config/compare/v1.1.0...v1.2.0) (2026-10-30)
 
 
