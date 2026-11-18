@@ -122,16 +122,16 @@ navigation: widget
 # are set to "true" (they can also be overridden).
 strings:
     productName:         "BakeryOS"
-    shortProductName:    "Bakery"
-    version:             "1.0.0"
+    shortProductName:    "BakeryOS"
+    version:             "rolling"
     shortVersion:        "1"
-    versionedName:       "BakeryOS 1.0.0"
-    shortVersionedName:  "Bakery 1.0"
+    versionedName:       "BakeryOS"
+    shortVersionedName:  "BakeryOS"
     bootloaderEntryName: "BakeryOS"
-    productUrl:          "https://gitlab.com/bakeryos"
-    supportUrl:          "https://gitlab.com/bakeryos"
-    knownIssuesUrl:      "https://gitlab.com/bakeryos"
-    releaseNotesUrl:     "https://gitlab.com/bakeryos"
+    productUrl:          "https://github.com/bakeryos-project"
+    supportUrl:          "https://github.com/bakeryos-project"
+    knownIssuesUrl:      "https://github.com/bakeryos-project"
+    releaseNotesUrl:     "https://github.com/bakeryos-project"
     donateUrl:           ""
 # These images are loaded from the branding module directory.
 #
